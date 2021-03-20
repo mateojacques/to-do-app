@@ -1,0 +1,23 @@
+{
+  "tasks": [
+    {
+      "title": "Task",
+      "date": "2021-03-19",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "Task completed",
+      "date": "2021-03-19",
+      "completed": true,
+      "id": 2
+    }
+  ],
+  "folders": [
+    {
+      "title": "Folder",
+      "tasks": [],
+      "id": 1
+    }
+  ]
+}

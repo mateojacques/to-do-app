@@ -1,13 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Rubik", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
 }
+
+.container {
+  width: 40%;
+  height: auto;
+  min-height: 500px;
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #40bcd8;
+  border-radius: 15px;
+}
+
+#header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px;
+  position: relative;
+}
+
+#header .title {
+  font-family: "Rubik", sans-serif;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#header #add-btn {
+  font-size: 1.8rem;
+}
+
+#header .select {
+  font-family: "FontAwesome", sans-serif;
+  position: absolute;
+  bottom: -20px;
+  right: 25px;
+  padding: 5px;
+  font-size: 0.8rem;
+  overflow: hidden;
+  border: none;
+}
+
+#header .select option {
+  border: none;
+  padding: 15px;
+}
+
+#tasks,
+#folders {
+  width: 100%;
+  padding: 20px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#tasks .task,
+#tasks .folder,
+#folders .task,
+#folders .folder {
+  cursor: pointer;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+}
+
+#tasks .task .task-info,
+#tasks .task .folder-info,
+#tasks .folder .task-info,
+#tasks .folder .folder-info,
+#folders .task .task-info,
+#folders .task .folder-info,
+#folders .folder .task-info,
+#folders .folder .folder-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#tasks .task .task-info .task-title, #tasks .task .task-info .folder-title,
+#tasks .task .folder-info .task-title,
+#tasks .task .folder-info .folder-title,
+#tasks .folder .task-info .task-title,
+#tasks .folder .task-info .folder-title,
+#tasks .folder .folder-info .task-title,
+#tasks .folder .folder-info .folder-title,
+#folders .task .task-info .task-title,
+#folders .task .task-info .folder-title,
+#folders .task .folder-info .task-title,
+#folders .task .folder-info .folder-title,
+#folders .folder .task-info .task-title,
+#folders .folder .task-info .folder-title,
+#folders .folder .folder-info .task-title,
+#folders .folder .folder-info .folder-title {
+  max-width: 500px;
+  word-wrap: break-word;
+}
+
+#tasks .task .task-options,
+#tasks .task .folder-options,
+#tasks .folder .task-options,
+#tasks .folder .folder-options,
+#folders .task .task-options,
+#folders .task .folder-options,
+#folders .folder .task-options,
+#folders .folder .folder-options {
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#tasks .task .task-options button,
+#tasks .task .folder-options button,
+#tasks .folder .task-options button,
+#tasks .folder .folder-options button,
+#folders .task .task-options button,
+#folders .task .folder-options button,
+#folders .folder .task-options button,
+#folders .folder .folder-options button {
+  font-size: 1rem;
+}
+
+#tasks .task,
+#folders .task {
+  background-color: #efefef;
+}
+
+#tasks .folder,
+#folders .folder {
+  background-color: #f39237;
+  color: #fff;
+  cursor: default;
+}
+
+#tasks .folder .folder-title,
+#folders .folder .folder-title {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#tasks .folder i,
+#folders .folder i {
+  color: #fff;
+}
+
+#tasks .completed,
+#folders .completed {
+  background-color: #40bcd8;
+  color: #fff;
+  -webkit-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+
+#tasks .completed i,
+#folders .completed i {
+  color: #fff;
+}
+
+#form {
+  width: 100%;
+  padding: 20px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+#form > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#form > div .form-control {
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#form > div .form-control label {
+  margin-bottom: 10px;
+}
+
+#form > div .form-control input {
+  width: 100%;
+  padding: 5px;
+}
+
+#form input[type="submit"] {
+  padding: 0.5rem 1.5rem;
+  margin: 0 auto;
+  border: none;
+  background-color: #1c77c3;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1366px) {
+  .container {
+    width: 50%;
+  }
+  .task-title, .folder-title {
+    max-width: 300px !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 70%;
+  }
+  .task,
+  .folder {
+    padding: 15px 15px 15px 30px !important;
+  }
+  .task-title, .folder-title {
+    max-width: 250px !important;
+  }
+  .task-options,
+  .folder-options {
+    width: 20% !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 90%;
+  }
+  #header {
+    padding: 40px 20px;
+  }
+  #folders,
+  #tasks {
+    padding: 10px 20px;
+  }
+  .folder-title,
+  .task-title {
+    font-size: 1rem !important;
+    max-width: 130px !important;
+  }
+  .folder-desc,
+  .task-desc {
+    font-size: 0.7rem !important;
+  }
+  #form {
+    padding: 20px;
+  }
+  #form > div {
+    overflow: visible;
+    font-size: 0.9rem !important;
+  }
+  #form input {
+    max-width: 100px;
+  }
+}
+/*# sourceMappingURL=index.css.map */

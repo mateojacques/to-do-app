@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Rubik", "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+}
+
+.container {
+  width: 40%;
+  height: auto;
+  min-height: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #40bcd8;
+  border-radius: 15px;
+}
+
+#header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  position: relative;
+
+  .title {
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  #add-btn {
+    font-size: 1.8rem;
+  }
+
+  .select {
+    font-family: "FontAwesome", sans-serif;
+    position: absolute;
+    bottom: -20px;
+    right: 25px;
+    padding: 5px;
+    font-size: 0.8rem;
+    overflow: hidden;
+    border: none;
+
+    option {
+      border: none;
+      padding: 15px;
+    }
+  }
+}
+
+#tasks,
+#folders {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .task,
+  .folder {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px 30px;
+    margin-bottom: 20px;
+
+    .task-info,
+    .folder-info {
+      display: flex;
+      flex-direction: column;
+
+      .task-title, .folder-title{
+        max-width: 500px;
+        word-wrap: break-word;
+      }
+    }
+
+    .task-options,
+    .folder-options {
+      width: 10%;
+      display: flex;
+      justify-content: space-around;
+      button {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .task {
+    background-color: #efefef;
+  }
+
+  .folder {
+    background-color: #f39237;
+    color: #fff;
+    cursor: default;
+
+    .folder-title {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    i {
+      color: #fff;
+    }
+  }
+
+  .completed {
+    background-color: #40bcd8;
+    color: #fff;
+    transition: background-color 1s ease;
+    i {
+      color: #fff;
+    }
+  }
+}
+
+#form {
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  > div {
+    display: flex;
+    justify-content: space-evenly;
+
+    .form-control {
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 5px;
+      }
+    }
+  }
+
+  input[type="submit"] {
+    padding: 0.5rem 1.5rem;
+    margin: 0 auto;
+    border: none;
+    background-color: #1c77c3;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .container {
+    width: 50%;
+  }
+
+  .task-title, .folder-title{
+    max-width: 300px !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 70%;
+  }
+
+  .task,
+  .folder {
+    padding: 15px 15px 15px 30px !important;
+  }
+
+  .task-title, .folder-title{
+    max-width: 250px !important;
+  }
+
+  .task-options,
+  .folder-options {
+    width: 20% !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 90%;
+  }
+
+  #header {
+    padding: 40px 20px;
+  }
+
+  #folders,
+  #tasks {
+    padding: 10px 20px;
+  }
+
+  .folder-title,
+  .task-title {
+    font-size: 1rem !important;
+    max-width: 130px !important;
+  }
+
+  .folder-desc,
+  .task-desc {
+    font-size: 0.7rem !important;
+  }
+
+  #form {
+    padding: 20px;
+
+    > div {
+      overflow: visible;
+
+      font-size: 0.9rem !important;
+    }
+
+    input {
+      max-width: 100px;
+    }
+  }
+}
